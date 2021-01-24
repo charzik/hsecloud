@@ -1,34 +1,50 @@
 # hsecloud
 
-sudo apt update && sudo apt upgrade
+## Install docker
 
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+`sudo apt update && sudo apt upgrade`
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+`sudo apt install apt-transport-https ca-certificates curl software-properties-common`
 
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
 
-sudo apt update && apt-cache policy docker-ce
+`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"`
 
-sudo apt install -y docker-ce
+`sudo apt update && apt-cache policy docker-ce`
 
-git clone https://github.com/charzik/hsecloud
+`sudo apt install -y docker-ce`
 
-cd hsecloud
+## Install backend
 
-sudo docker image build --network=host -t service_status:1.0 -f service_status/Dockerfile .
+`git clone https://github.com/charzik/hsecloud`
 
-sudo docker run --network=host -d -p 8080:8080 service_status:1.0
+`cd hsecloud`
 
+`sudo docker image build --network=host -t service_status:1.0 -f service_status/Dockerfile .`
+
+`sudo docker run --network=host -d -p 8080:8080 service_status:1.0`
+
+
+## Install nginx 
+
+`sudo apt-get install nginx`
+
+Правим конфиг `/etc/nginx/sites-available/default`
 
 в блок http
-upstream backend {
+`upstream backend {
         server backend1:8080;
         server backend2:8080;
-}
+}`
 
 в блок server locatio
-proxy_pass http://backend;
+`proxy_pass http://backend;`
 
+`sudo service nginx reload`
+
+## Install PostgreSQL
+
+
+`sudo docker run -p 5432:5432 -e POSTGRES_PASSWORD=123456789 -d postgres:9.3.6`
 
 
