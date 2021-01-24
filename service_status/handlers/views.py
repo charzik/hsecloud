@@ -25,8 +25,3 @@ def healthcheck(request):
         }
     )
 
-def save_service():
-    models.Item.objects.update_or_create(
-        ip=socket.gethostbyname(socket.gethostname()), 
-        status='AVAILABLE'
-    )

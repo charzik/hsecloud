@@ -12,7 +12,8 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'rest_framework',
-    'handlers'
+    'handlers.apps.HandlersConfig'
+    # 'handlers'
 ]
 
 ROOT_URLCONF = 'handlers.urls'
