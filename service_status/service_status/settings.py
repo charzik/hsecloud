@@ -27,7 +27,7 @@ DATABASES = {
         'NAME': 'service_status',
         'USER' : 'postgres',
         'PASSWORD' : '123456789',
-        'HOST' : 'db-pg',
+        'HOST' : '178.154.253.159',
         'PORT' : 5432,
     }
 }
