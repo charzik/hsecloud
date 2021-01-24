@@ -19,3 +19,16 @@ cd hsecloud
 sudo docker image build --network=host -t service_status:1.0 -f service_status/Dockerfile .
 
 sudo docker run --network=host -d -p 8080:8080 service_status:1.0
+
+
+в блок http
+upstream backend {
+        server backend1:8080;
+        server backend2:8080;
+}
+
+в блок server locatio
+proxy_pass http://backend;
+
+
+
