@@ -8,7 +8,10 @@ class HandlersConfig(AppConfig):
 
     def ready(self):
         from . import models
-        models.Item.objects.update_or_create(
-            ip=socket.gethostname(), 
-            status='AVAILABLE'
-        )
+        try:
+            models.Item.objects.update_or_create(
+                ip=socket.gethostname(), 
+                status='AVAILABLE'
+            )
+        except Exception:
+            return

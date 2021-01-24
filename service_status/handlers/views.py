@@ -8,6 +8,10 @@ from . import models
 
 @api_view(['GET'])
 def healthcheck(request):
+    models.Item.objects.update_or_create(
+        ip=socket.gethostname(), 
+        status='AVAILABLE'
+    )
     items = models.Item.objects.all()
     services = []
     for item in items:
