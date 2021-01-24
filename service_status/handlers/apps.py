@@ -9,6 +9,6 @@ class HandlersConfig(AppConfig):
     def ready(self):
         from . import models
         models.Item.objects.update_or_create(
-            ip=socket.gethostbyname(socket.gethostname()), 
+            ip=socket.gethostname(), 
             status='AVAILABLE'
         )

@@ -20,7 +20,7 @@ def healthcheck(request):
     return Response(
         status=200, 
         data={
-            'ip': socket.gethostbyname(socket.gethostname()), 
+            'ip': socket.gethostname(), 
             'services': services
         }
     )
