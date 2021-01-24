@@ -24,7 +24,7 @@ WSGI_APPLICATION = 'service_status.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'service_status1',
+        'NAME': 'service_status',
         'USER' : 'postgres',
         'PASSWORD' : '123456789',
         'HOST' : '178.154.253.159',
