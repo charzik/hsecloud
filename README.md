@@ -46,13 +46,7 @@
 
 
 `
-sudo docker run \
-    -p 5432:5432 \
-    -e POSTGRES_PASSWORD=123456789 \
-    -e POSTGRES_USER=postgres \
-    -e POSTGRES_DB=service_status \
-    -v pgdata:/var/lib/postgresql/data \
-    -d postgres:9.3.6
+sudo docker run -p 5432:5432 -e POSTGRES_PASSWORD=123456789 -e POSTGRES_USER=postgres -e POSTGRES_DB=service_status -v pgdata:/var/lib/postgresql/data -d postgres:9.3.6
 `
 
 
